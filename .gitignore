@@ -1,0 +1,5 @@
+node_modules
+cert
+.well-known
+.git
+.gitattributes
