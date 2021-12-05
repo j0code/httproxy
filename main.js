@@ -73,7 +73,7 @@ function proxyFetch(secure, host, creq, cres) {
 	logger.info("HTTP", "REQUEST", "Proxy <-> " + creq.socket.remoteAddress + " :", creq.method, creq.url, "on " + host)
 	var browserHost = creq.headers.host; // stores the host the browser tries to connect to
 	var headers = creq.headers;
-	headers.host = host;
+	if(config.hosts[browserHost].as) headers.host = config.hosts[browserHost].as;
 	if(headers.origin && config.hosts[browserHost].as) try {
 		headers.origin = replaceHost(creq.headers.origin, browserHost, config.hosts[browserHost].as)
 	} catch(e) {
