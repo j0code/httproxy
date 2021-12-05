@@ -43,7 +43,7 @@ function requestListener(s, req, res) {
 	var url = new URL(req.url, `https://${req.headers.host}`);
 
 	if(req.url.startsWith("/.well-known/")) { // for certbot support
-		console.log("certbot support")
+		logger.info("HTTP", "REQUEST", "Proxy <-> " + req.socket.remoteAddress + " :", req.method, req.url, "(certbot support)")
 		if(req.url.includes("..")) {
 			respondError(res, 418, "Nice try.", "EDOTDOT")
 		}
