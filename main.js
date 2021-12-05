@@ -74,15 +74,15 @@ function proxyFetch(secure, host, creq, cres) {
 	var browserHost = creq.headers.host; // stores the host the browser tries to connect to
 	var headers = creq.headers;
 	headers.host = host;
-	if(headers.origin) try {
-		headers.origin = replaceHost(creq.headers.origin, browserHost, host)
+	if(headers.origin && config.hosts[browserHost].as) try {
+		headers.origin = replaceHost(creq.headers.origin, browserHost, config.hosts[browserHost].as)
 	} catch(e) {
 		respondError(cres, ...e)
 		return
 	}
-	if(headers.referer) {
+	if(headers.referer && config.hosts[browserHost].as) {
 		try {
-			headers.referer = replaceHost(creq.headers.referer, browserHost, host)
+			headers.referer = replaceHost(creq.headers.referer, browserHost, config.hosts[browserHost].as)
 		} catch(e) {
 			delete headers.referer
 		}
