@@ -1,6 +1,12 @@
 # httproxy
 An http reverse proxy that makes subdomains work
 
+## BUGS
+Known bugs:
+- when trying to connect to an apache server over https, it'll throw an EPROTO ssl error.
+  (at least with openssl 3.0.0)
+
+
 ### config.json
 Create a file 'config.json' after cloning that contains the following:
 ```json
