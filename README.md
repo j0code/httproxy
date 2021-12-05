@@ -33,12 +33,12 @@ Create a file 'config.json' after cloning that contains the following:
 
 a host is the part of the url that the user entered in their browser without url scheme and path (e.g. example.com)
 
-  `dest`: the destination. This should be a webserver, either local or on the web
+  `hosts.host.dest`: the destination. This should be a webserver, either local or on the web
   
-  `secure`: determines whether to use https or not (e.g. when using apache, you might want to set it to secure since it will try to upgrade)
+  `hosts.host.secure`: determines whether to use https or not (e.g. when using apache, you might want to set it to secure since it will try to upgrade)
   Note: currently broken
   
-  `as`: Optional. If given, it will replace the host with this string in origin/referer headers (useful if a webserver blocks requests from other origins)
+  `hosts.host.as`: Optional. If given, it will replace the host with this string in origin/referer headers (useful if a webserver blocks requests from other origins)
   Example: example.com (it might block localhost requests)
   
   ### certbot support
