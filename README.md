@@ -38,7 +38,7 @@ a host is the part of the url that the user entered in their browser without url
   `hosts.host.secure`: determines whether to use https or not (e.g. when using apache, you might want to set it to secure since it will try to upgrade)
   Note: currently broken
   
-  `hosts.host.as`: Optional. If given, it will replace the host with this string in origin/referer headers (useful if a webserver blocks requests from other origins)
+  `hosts.host.as`: Optional. If given, it will replace the host with this string in host/origin/referer headers (useful if a webserver blocks requests from other origins)
   Example: example.com (it might block localhost requests)
   
   ### certbot support
